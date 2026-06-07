@@ -1,15 +1,29 @@
-Структура проекта
-ml_solution.py - RandomForestClassifier, Catboost
-requirements.txt - необходимые зависимости
+# Predictive Maintenance — ML Solution
 
-Код для установки зависимостей:
+Решение тестового задания: предсказание отказа оборудования на датасете [AI4I 2020](https://archive.ics.uci.edu/ml/machine-learning-databases/00601/ai4i2020.csv).
+
+## Структура проекта
+
+| Файл | Описание |
+|------|----------|
+| `ml_solution.py` | EDA, предобработка, обучение **RandomForest** и **CatBoost** |
+| `requirements.txt` | Зависимости проекта |
+
+## Установка
+
+```bash
 pip install -r requirements.txt
-Код для запуска скрипта:
-python Путь_к_файлу_ml_solution.py
+```
 
-Пример вывода ml_solution.py
+## Запуск
 
+```bash
+python ml_solution.py
+```
 
+## Пример вывода
+
+```
 ИНФОРМАЦИЯ О ДАННЫХ
 Первые 5 строк данных 
 :    UDI Product ID Type  Air temperature [K]  ...  HDF  PWF  OSF  RNF
@@ -69,15 +83,7 @@ Name: count, dtype: int64
  Product ID
 M14860    1
 L53850    1
-L53843    1
-L53844    1
-L53845    1
-         ..
-M18193    1
-M18194    1
-L50515    1
-L50516    1
-M24859    1
+...
 Name: count, Length: 10000, dtype: int64
 Максимальное количество уникальных значений Product ID:  1
 --------------------------------------------------
@@ -91,7 +97,7 @@ Name: count, dtype: int64
  0.9973
 ПРЕДОБРАБОТКА ДАННЫХ
 Преддобработанные признаки: 
-    Air temperature [K]  Process temperature [K]  ...  Type_L  Type_M
+   Air temperature [K]  Process temperature [K]  ...  Type_L  Type_M
 0                298.1                    308.6  ...   False    True
 1                298.2                    308.7  ...    True   False
 2                298.1                    308.5  ...    True   False
@@ -134,6 +140,11 @@ CatBoost
 7       2101       0     0.016202  False
 8       7886       0     0.003486  False
 9       2422       0     0.438347   True
+```
 
+## Кратко о результатах
 
-
+- **Целевая переменная:** `Machine failure` (0 — без отказа, 1 — отказ)
+- **Разбиение:** train / validation = 80 / 20
+- **Порог alert:** probability ≥ 0.05
+- **Основная метрика:** Recall — важнее не пропустить отказ при сильном дисбалансе классов
