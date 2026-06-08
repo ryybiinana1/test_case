@@ -1,6 +1,6 @@
-# Predictive Maintenance — ML Solution
+# Предсказание отказа оборудования
 
-Решение тестового задания: предсказание отказа оборудования на датасете [AI4I 2020](https://archive.ics.uci.edu/ml/machine-learning-databases/00601/ai4i2020.csv).
+Решение тестового задания: предсказание отказа оборудования на датасете (https://archive.ics.uci.edu/ml/machine-learning-databases/00601/ai4i2020.csv).
 
 ## Структура проекта
 
